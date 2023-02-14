@@ -1,10 +1,14 @@
 import './reset.css'
 import './global.css'
+import { Header } from './components/Header'
 
 export function App() {
   return (
-    <h1>
-      This will be the Ignite Challenge 1 content
-    </h1>
+    <div>
+      <Header />
+      <h1>
+        This will be the Ignite Challenge 1 content
+      </h1>
+    </div>
   )
 }
