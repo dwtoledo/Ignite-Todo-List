@@ -1,0 +1,14 @@
+.mainContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mainContent > p {
+  color: var(--gray-300);
+  font-size: 1rem;
+}
+
+.mainContent > img + p {
+  margin-top: 1rem;
+}
