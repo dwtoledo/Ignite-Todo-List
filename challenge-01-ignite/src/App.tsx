@@ -8,6 +8,7 @@ import { useState } from 'react'
 import './reset.css'
 import './global.css'
 import styles from './App.module.css'
+import { ToDoCounter } from './components/ToDoCounter'
 
 export function App() {
 
@@ -23,6 +24,12 @@ export function App() {
       return toDoTask.id !== toDoTaskId
     })
     setToDoList(toDoListWithoutTheRemovedOne)
+  }
+
+  function countCompletedToDoTasksIntoToDoList(): number {
+    return toDoList.filter((toDoTask) => {
+      return toDoTask.isCompleted === true;
+    }).length
   }
 
   function toogleToDoTaskCompleteStatus(toDoTaskId: string) {
@@ -42,7 +49,13 @@ export function App() {
 
         <ToDoForm onAddNewToDoTask={addNewToDoTaskIntoToDoList} />
 
+        <ToDoCounter
+          totalItems={toDoList.length}
+          completedItems={countCompletedToDoTasksIntoToDoList()}
+        />
+
         {toDoList.length ?
+        
           <ul className={styles.toDoList}>
             {
               toDoList.map((toDoTask) => {
@@ -58,8 +71,8 @@ export function App() {
             }
           </ul>
 
-          : <EmptyToDoList />}
-
+          : <EmptyToDoList />
+        }
 
       </div>
     </div>
