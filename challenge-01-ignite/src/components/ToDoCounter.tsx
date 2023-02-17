@@ -7,7 +7,9 @@ interface ToDoCounterProps {
 
 export function ToDoCounter({ totalItems, completedItems }: ToDoCounterProps) {
   return (
-    <div className={totalItems > 0 ? styles.contentWrapper : styles.emptyContentWrapper}>
+    <div className={totalItems > 0 ?
+      styles.contentWrapper :
+      styles.emptyContentWrapper}>
 
       <div className={styles.totalTasksCounter}>
         <span>Created tasks</span>
@@ -18,7 +20,7 @@ export function ToDoCounter({ totalItems, completedItems }: ToDoCounterProps) {
         <span>Concluded</span>
         <span>{completedItems}</span>
       </div>
-    </div>
 
+    </div>
   )
 }

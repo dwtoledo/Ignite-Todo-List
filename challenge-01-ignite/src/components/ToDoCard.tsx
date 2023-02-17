@@ -16,8 +16,8 @@ export function ToDoCard({ dataSource, onCompleteStatusChange, onDelete }: ToDoC
     onDelete(dataSource.id)
   }
 
-  function toogleCheckboxValue() {
-    onCompleteStatusChange(dataSource.id)
+  function toogleToDoCardCheckbox(toDoTaskId: string) {
+    onCompleteStatusChange(toDoTaskId)
   }
 
   return (
@@ -29,13 +29,13 @@ export function ToDoCard({ dataSource, onCompleteStatusChange, onDelete }: ToDoC
       <CircleCheckBox
         id={dataSource.id}
         isChecked={dataSource.isCompleted}
-        onClick={toogleCheckboxValue}
+        onClick={toogleToDoCardCheckbox}
       />
 
       <p className={
         dataSource.isCompleted ?
-          styles.lineThroughText :
-          styles.noTextDecoration
+          styles.completedToDoCardText :
+          styles.notCompletedToDoCardText
       }>
         {dataSource.name}
       </p>

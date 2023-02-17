@@ -3,13 +3,13 @@ import styles from './CircleCheckBox.module.css'
 interface CircleCheckBoxProps {
   id: string
   isChecked: boolean
-  onClick: () => void
+  onClick: (id: string) => void
 }
 
 export function CircleCheckBox({ id, isChecked, onClick }: CircleCheckBoxProps) {
 
   function handleCheckBoxClick() {
-    onClick()
+    onClick(id)
   }
 
   return (

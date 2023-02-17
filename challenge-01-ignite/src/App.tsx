@@ -1,6 +1,7 @@
 import { EmptyToDoList } from './components/EmptyToDoList'
 import { Header } from './components/Header'
 import { ToDoCard } from './components/ToDoCard'
+import { ToDoCounter } from './components/ToDoCounter'
 import { ToDoForm } from './components/ToDoForm'
 import { ToDoTask } from './models/ToDoTask'
 import { useState } from 'react'
@@ -8,7 +9,6 @@ import { useState } from 'react'
 import './reset.css'
 import './global.css'
 import styles from './App.module.css'
-import { ToDoCounter } from './components/ToDoCounter'
 
 export function App() {
 
@@ -28,7 +28,7 @@ export function App() {
 
   function countCompletedToDoTasksIntoToDoList(): number {
     return toDoList.filter((toDoTask) => {
-      return toDoTask.isCompleted === true;
+      return toDoTask.isCompleted === true
     }).length
   }
 
@@ -44,7 +44,9 @@ export function App() {
 
   return (
     <div>
+
       <Header />
+
       <div className={styles.mainContent}>
 
         <ToDoForm onAddNewToDoTask={addNewToDoTaskIntoToDoList} />
@@ -55,7 +57,7 @@ export function App() {
         />
 
         {toDoList.length ?
-        
+
           <ul className={styles.toDoList}>
             {
               toDoList.map((toDoTask) => {
